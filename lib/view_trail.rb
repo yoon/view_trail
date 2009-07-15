@@ -1,3 +1,5 @@
+require 'view_trail/activity'
+
 module ViewTrail
   @@whodunnit = nil
   
@@ -42,10 +44,7 @@ module ViewTrail
   module InstanceMethods
     def record_activity
       if self.class.view_trail_active
-        logger.debug(ViewTrail.whodunnit.inspect)
-        logger.debug(params.delete(:controller))
-        logger.debug(params.delete(:action))
-        logger.debug(params.inspect)
+        Activity.create(:whodunnit => ViewTrail.whodunnit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params.inspect)
       end
     end
   end
