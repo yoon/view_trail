@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{view_trail}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Yoon"]
@@ -23,8 +23,10 @@ Gem::Specification.new do |s|
      "generators/view_trail/templates/create_activities.rb",
      "generators/view_trail/view_trail_generator.rb",
      "lib/view_trail.rb",
+     "lib/view_trail/activity.rb",
      "spec/spec_helper.rb",
-     "spec/view_trail_spec.rb"
+     "spec/view_trail_spec.rb",
+     "view_trail.gemspec"
   ]
   s.homepage = %q{http://github.com/yoon/view_trail}
   s.rdoc_options = ["--charset=UTF-8"]
