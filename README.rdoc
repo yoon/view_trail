@@ -1,0 +1,7 @@
+= view_trail
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Mark Yoon. See LICENSE for details.
