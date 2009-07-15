@@ -5,7 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "view_trail"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{View trail tracks controller actions in Rails.}
+    gem.description = %Q{View trail tracks controller actions in Rails.}
     gem.email = "yoon@northwestern.edu"
     gem.homepage = "http://github.com/yoon/view_trail"
     gem.authors = ["Mark Yoon"]
