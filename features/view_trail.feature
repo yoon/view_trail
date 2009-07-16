@@ -32,3 +32,7 @@ Feature: ViewTrail
     And the last activity should have "312" whodunnit
     And the last activity should have "foo" action
 
+  Scenario: GET request on excepted path
+    Given I have 0 activities
+    When I get the bar page
+    Then I should have 0 activities

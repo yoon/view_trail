@@ -42,4 +42,5 @@ end
 # Sets up routes
 ActionController::Routing::Routes.draw do |map|
   map.foo "/foo", :controller => "foo", :action => "foo"
+  map.foo "/bar", :controller => "foo", :action => "bar"
 end
