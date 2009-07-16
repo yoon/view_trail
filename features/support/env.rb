@@ -22,20 +22,18 @@ class ApplicationController
   def rescue_action(e)
     raise e
   end
-
+  cattr_accessor :cu
   # Returns id of hypothetical current user
   def current_user
-    153
+    self.cu
   end
 end
 
 class FooController < ApplicationController
   has_view_trail :except => :bar
-
   def foo
     head :ok
   end
-  
   def bar
     head :ok
   end
