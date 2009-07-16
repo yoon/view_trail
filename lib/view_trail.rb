@@ -25,9 +25,9 @@ module ViewTrail
   end
 
   module ClassMethods
-    def has_view_trail(&block)
+    def has_view_trail(*conditions)
       before_filter :set_whodunnit
-      after_filter(:record_activity, &block)
+      after_filter(:record_activity, conditions)
       cattr_accessor :view_trail_active
       self.view_trail_active = true
       send :include, InstanceMethods
