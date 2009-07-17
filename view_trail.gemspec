@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{view_trail}
-  s.version = "0.2.2"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Yoon"]
@@ -25,10 +25,11 @@ Gem::Specification.new do |s|
      "features/support/env.rb",
      "features/support/paths.rb",
      "features/view_trail.feature",
-     "generators/view_trail/templates/create_activities.rb",
+     "generators/view_trail/templates/create_activities_and_items.rb",
      "generators/view_trail/view_trail_generator.rb",
      "lib/view_trail.rb",
      "lib/view_trail/activity.rb",
+     "lib/view_trail/activity_item.rb",
      "spec/spec_helper.rb",
      "spec/view_trail_spec.rb",
      "view_trail.gemspec"
