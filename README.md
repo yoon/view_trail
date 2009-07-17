@@ -36,9 +36,9 @@ Takes :except and :only conditions like other controller filters
   
 4. Add `has view_trail` to the controllers you want to track
 
-## TODO
+## Issues
 
-Test!
+Please submit issues via GitHub's [Issue Tracker](http://github.com/yoon/view_trail/issues)
 
 ## Inspiration
 
