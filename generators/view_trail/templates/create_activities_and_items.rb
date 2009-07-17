@@ -1,4 +1,4 @@
-class CreateActivities < ActiveRecord::Migration
+class CreateActivitiesAndItems < ActiveRecord::Migration
   def self.up
     create_table :activities do |t|
       t.string   :controller
@@ -6,12 +6,16 @@ class CreateActivities < ActiveRecord::Migration
       t.text     :params
       t.string   :whodunnit
       t.datetime :created_at
+    end  
+    create_table :activity_items do |t|
+      t.integer :activity_id
+      t.string  :key
+      t.text    :value
     end
-    # add_index :activities, [:item_type, :item_id]
   end
 
   def self.down
-    # remove_index :activities, [:item_type, :item_id]
     drop_table :activities
+    drop_table :activity_items
   end
 end

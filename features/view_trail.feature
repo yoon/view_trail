@@ -32,9 +32,15 @@ Feature: ViewTrail
     And the last activity should have "312" whodunnit
     And the last activity should have "foo" action
 
-  Scenario: GET request
+  Scenario: GET request with params
     Given I get the foo page with params
     Then I should have 5 activities
+    And the last activity should have params
+
+  Scenario: GET request with params and arbitrary data
+    Given I get the baz page with params
+    Then I should have 6 activities
+    And the last activity should have data
     And the last activity should have params
 
   Scenario: GET request on excepted path

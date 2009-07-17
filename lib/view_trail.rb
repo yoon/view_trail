@@ -1,4 +1,5 @@
 require 'view_trail/activity'
+require 'view_trail/activity_item'
 
 module ViewTrail
   @@whodunnit = nil
@@ -42,9 +43,16 @@ module ViewTrail
   end
   
   module InstanceMethods
+    def audit(items)
+      @activity_items = items
+    end
     def record_activity
       if self.class.view_trail_active
-        Activity.create(:whodunnit => ViewTrail.whodunnit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params)
+        a = Activity.create(:whodunnit => ViewTrail.whodunnit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params)
+        (@activity_items || {}).each do |k,v|
+          a.activity_items.create(:key => k.to_s, :value => v)
+        end
+        @activity_items = nil
       end
     end
   end

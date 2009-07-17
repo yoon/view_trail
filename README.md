@@ -10,15 +10,29 @@ Works with Rails 2.3.
 
     class FooController < ActionController::Base
       has_view_trail :except => :index
+      
+      def index
+      end
+        
+      def search
+        @results = Model.search(params[:query])
+        
+        audit({:results => @results.map(&:id), :flag => "blue"})
+      end
     end
 
-Takes :except and :only conditions like other controller filters
+    Takes :except and :only conditions like other controller filters
     
-    >> Activities.last.whodunnit
-    >> Activities.last.created_at
-    >> Activities.last.controller
-    >> Activities.last.action
-    >> Activities.last.params
+    Also allows you to audit an arbitrary key/value hash
+    
+    For example: when you visit /foo/search?query=pie
+    
+    >> Activities.last.whodunnit      #=> (@controller.current_user)
+    >> Activities.last.created_at     #=> (date/time of activity)
+    >> Activities.last.controller     #=> FooController
+    >> Activities.last.action         #=> "search"
+    >> Activities.last.params         #=> {:query => "pie"}
+    >> Activities.last.activity_items #=> [{:key => :results, :value => [2, 12, 14]}], [{:key => :flag, :value => "blue"}]
     
 ## Installation
 

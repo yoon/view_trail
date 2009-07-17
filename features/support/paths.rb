@@ -10,24 +10,6 @@ module NavigationHelpers
     
     when /the homepage/
       default_path
-
-    when /the login page/
-      authentication_index_path
-
-    when /the dashboard/
-      dashboard_path
-    
-    when /the all studies page/
-      studies_path
-      
-    when /my subjects/
-      subjects_path
-      
-    when /the study page for id "([^\"]*)"/
-      "/studies/#{$1}"
-    
-    when /the search page/
-      search_path
     
     # Add more mappings here.
     # Here is a more fancy example:

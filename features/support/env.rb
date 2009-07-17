@@ -37,10 +37,15 @@ class FooController < ApplicationController
   def bar
     head :ok
   end
+  def baz
+    audit({:pi => [3,1,4,1,5,9], :pie => ["apple", "blueberry", "pecan", "strawberry"]})
+    head :ok
+  end
 end
 
 # Sets up routes
 ActionController::Routing::Routes.draw do |map|
   map.foo "/foo", :controller => "foo", :action => "foo"
-  map.foo "/bar", :controller => "foo", :action => "bar"
+  map.bar "/bar", :controller => "foo", :action => "bar"
+  map.baz "/baz", :controller => "foo", :action => "baz"
 end
