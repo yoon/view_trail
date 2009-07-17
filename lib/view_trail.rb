@@ -44,7 +44,7 @@ module ViewTrail
   module InstanceMethods
     def record_activity
       if self.class.view_trail_active
-        Activity.create(:whodunnit => ViewTrail.whodunnit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params.inspect)
+        Activity.create(:whodunnit => ViewTrail.whodunnit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params)
       end
     end
   end
