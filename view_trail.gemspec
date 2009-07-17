@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{view_trail}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Yoon"]
-  s.date = %q{2009-07-16}
+  s.date = %q{2009-07-17}
   s.description = %q{View trail tracks controller actions in Rails.}
   s.email = %q{yoon@northwestern.edu}
   s.extra_rdoc_files = [
