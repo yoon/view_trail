@@ -4,7 +4,7 @@ class CreateActivitiesAndItems < ActiveRecord::Migration
       t.string   :controller
       t.string   :action
       t.text     :params
-      t.string   :whodunnit
+      t.string   :whodiddit
       t.datetime :created_at
     end  
     create_table :activity_items do |t|

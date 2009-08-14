@@ -27,7 +27,7 @@ Works with Rails 2.3.
     
     For example: when you visit /foo/search?query=pie
     
-    >> Activities.last.whodunnit      #=> (@controller.current_user)
+    >> Activities.last.whodiddit      #=> (@controller.current_user)
     >> Activities.last.created_at     #=> (date/time of activity)
     >> Activities.last.controller     #=> FooController
     >> Activities.last.action         #=> "search"
@@ -53,6 +53,19 @@ Works with Rails 2.3.
 ## Issues
 
 Please submit issues via GitHub's [Issue Tracker](http://github.com/yoon/view_trail/issues)
+
+## History
+
+0.3.1
+
+Fixed conflict with paper trail whodunnit. To upgrade:
+
+    `rake db:migrate:down`
+
+remove old migration and re-run
+
+    `script/generate view_trail`
+    `rake db:migrate`
 
 ## Inspiration
 

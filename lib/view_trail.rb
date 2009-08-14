@@ -2,32 +2,32 @@ require 'view_trail/activity'
 require 'view_trail/activity_item'
 
 module ViewTrail
-  @@whodunnit = nil
+  @@whodiddit = nil
   
   def self.included(base)
     base.send :extend, ClassMethods
-    base.before_filter :set_whodunnit
+    base.before_filter :set_whodiddit
   end
 
-  def self.whodunnit
-    @@whodunnit.respond_to?(:call) ? @@whodunnit.call : @@whodunnit
+  def self.whodiddit
+    @@whodiddit.respond_to?(:call) ? @@whodiddit.call : @@whodiddit
   end
 
-  def self.whodunnit=(value)
-    @@whodunnit = value
+  def self.whodiddit=(value)
+    @@whodiddit = value
   end
 
   private
 
-  def set_whodunnit
-    @@whodunnit = lambda {
+  def set_whodiddit
+    @@whodiddit = lambda {
       self.respond_to?(:current_user) ? self.current_user : nil
     }
   end
 
   module ClassMethods
     def has_view_trail(*conditions)
-      before_filter :set_whodunnit
+      before_filter :set_whodiddit
       after_filter(:record_activity, conditions)
       cattr_accessor :view_trail_active
       self.view_trail_active = true
@@ -48,7 +48,7 @@ module ViewTrail
     end
     def record_activity
       if self.class.view_trail_active
-        a = Activity.create(:whodunnit => ViewTrail.whodunnit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params)
+        a = Activity.create(:whodiddit => ViewTrail.whodiddit, :controller => params.delete(:controller), :action => params.delete(:action), :params => params)
         (@activity_items || {}).each do |k,v|
           a.activity_items.create(:key => k.to_s, :value => v)
         end
